@@ -26,6 +26,7 @@ let arr = [1, 2, 3, 4];
 console.log(arr);
 console.log(arr[3]);
 
+///////////////////////////////////////
 // Loops 01
 for (let i = 0; i <= 4; i++) {
   console.log("Hello World!");
@@ -42,3 +43,107 @@ for (let i = 2; i < 9; i = i + 2) {
 for (let i = 5; i > 0; i--) {
   console.log("Hello", i);
 }
+
+for (let i = 5; i < 4; i++) {
+  console.log("hello", i);
+}
+
+const greet = function (i) {
+  console.log("Namaste....", i);
+};
+for (let i = 0; i < 5; i++) {
+  greet(i);
+}
+
+// Print all the even numbers in array
+const numArray = [10, 5, 21, 0, 8, 3];
+let length = numArray.length;
+console.log(numArray[0], length);
+// console.log(numArray[6]);
+console.log("Even numbers of array----");
+for (let i = 0; i < length; i++) {
+  if (numArray[i] % 2 === 0) {
+    console.log(numArray[i]);
+  }
+}
+// while loop
+let i = 0;
+while (i < 5) {
+  console.log("Hello..");
+  i++;
+}
+
+/////////////////////////////////
+// Loops 02
+// Q1: Write a function to search for an element in an array and returns the index, if the element is not present then just return -1
+const arr1 = [4, 2, 0, 10, 8, 30];
+const elementSearch = function (arr, element) {
+  for (let i = 0; i < arr.length; i++) {
+    if (element === arr[i]) {
+      // console.log(`Element ${element} is present in an array`);
+      return i;
+    }
+  }
+  return -1;
+};
+
+let result = elementSearch(arr1, 10);
+console.log(result);
+result = elementSearch(arr1, 49);
+console.log(result);
+
+// Q2: Write a function that returns the number of negative numbers in as array
+const numberArray = [2, -9, 17, 0, 1, -10, -4, 8, -1, -1];
+const negativeNumbers = function (arr) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+      // count = count + 1;
+      count++;
+    }
+  }
+  return count;
+};
+
+const counts = negativeNumbers(numberArray);
+console.log("Total negative numbers in an array: ", counts);
+
+// Q3: Write the function that returns the largest number in an array
+let arrLargest = [50, 0, 7, 10, 8, 17, 1];
+// let arrLargest = [-9, -19, -3];
+const largestNumber = function (arr) {
+  // let largest=0;
+  // let largest=arr[0];
+  let largest = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      largest = arr[i];
+    }
+  }
+  return largest;
+};
+
+const largest = largestNumber(arrLargest);
+console.log("Largest number in an array is: ", largest);
+
+//////////////////////////////////////////
+// Second Largest number in an array
+let secondLargestArray = [4, 9, 0, 2, 8, 7, 1];
+const secondLargest = function (arr) {
+  let firstLargest = -Infinity;
+  let secondLargest = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > firstLargest) {
+      secondLargest = firstLargest;
+      firstLargest = arr[i];
+      if (arr[i] > secondLargest) {
+        secondLargest = arr[i];
+      }
+    }
+  }
+  console.log(firstLargest, secondLargest);
+  return secondLargest;
+};
+
+const res = secondLargest(secondLargestArray);
+console.log(res);
