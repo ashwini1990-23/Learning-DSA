@@ -126,7 +126,7 @@ const largestNumber = function (arr) {
 
 const largest = largestNumber(arrLargest);
 console.log("Largest number in an array is: ", largest);
-*/
+
 
 //////////////////////////////////////////
 // Second Largest number in an array
@@ -197,13 +197,12 @@ for (let i = 5; i > 0; i--) {
     console.log(i, j);
   }
 }
+*/
 
+/*
 ///////////////////////////////////
 // Star Pattern
-/*.   * * * *
- * * * *
- * * * *
- * * * *     */
+   
 let n = 6;
 for (let i = 1; i <= n; i++) {
   let row = "";
@@ -291,3 +290,153 @@ for (let i = 0; i < 5; i++) {
   }
   console.log(row);
 }
+ */
+
+//////////////////////////////////
+// Count Digit: Write a function that returns the count of digits in a number
+
+const countDigits = function (num) {
+  // If num is 0
+  if (num === 0) return 1;
+
+  // Change/ convert -ve number to positive number
+  num = Math.abs(num);
+
+  let count = 0;
+  while (num > 0) {
+    num = Math.floor(num / 10);
+    count++;
+  }
+  return count;
+};
+
+let num = -10;
+let result = countDigits(num);
+console.log(result);
+
+console.log(Math.abs(-98));
+
+// Revision of Star Pattern
+let n = 5;
+for (let i = 0; i < n; i++) {
+  let row = "";
+  for (let j = 0; j <= i; j++) {
+    row = row + "*";
+  }
+  console.log(row);
+}
+
+for (let i = 0; i < n; i++) {
+  let row = "";
+  for (let j = 0; j < i + 1; j++) {
+    row = row + (j + 1);
+  }
+  console.log(row);
+}
+
+for (let i = 0; i < n; i++) {
+  let row = "";
+  for (let j = 0; j < i + 1; j++) {
+    row = row + (i + 1);
+  }
+  console.log(row);
+}
+
+for (let i = 0; i < n; i++) {
+  let row = "";
+  for (let j = 0; j < n - i; j++) {
+    row = row + (j + 1);
+  }
+  console.log(row);
+}
+
+for (let i = 0; i < n; i++) {
+  let row = "";
+  for (let j = 0; j < n - (i + 1); j++) {
+    row = row + ".";
+  }
+  for (let k = 0; k < i + 1; k++) {
+    row = row + "*";
+  }
+  console.log(row);
+}
+
+for (let i = 0; i < n; i++) {
+  let row = "";
+  let toggle = 1;
+  for (let j = 0; j < i + 1; j++) {
+    row = row + toggle;
+    if (toggle === 1) {
+      toggle = 0;
+    } else {
+      toggle = 1;
+    }
+  }
+  console.log(row);
+}
+
+let toggle = 1;
+for (let i = 0; i < n; i++) {
+  let row = "";
+
+  for (let j = 0; j < i + 1; j++) {
+    row = row + toggle;
+    if (toggle === 1) {
+      toggle = 0;
+    } else {
+      toggle = 1;
+    }
+  }
+  console.log(row);
+}
+
+/////////////////////////////////////
+// Palindrome: An integer is a palindrome when it reads the same forward and backward E.g: 121
+console.log("------------ Palindrome --------------");
+const isPalindrome = function (number) {
+  if (number < 0) return false;
+  const numberCopy = number;
+  let reverse = 0;
+  let rem;
+  while (number > 0) {
+    rem = number % 10;
+    reverse = reverse * 10 + rem;
+    number = Math.floor(number / 10);
+  }
+  // console.log(reverse);
+  // if (reverse === numberCopy) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+  return reverse === numberCopy;
+};
+
+const resultPalindrome = isPalindrome(34);
+console.log(resultPalindrome);
+
+//////////////////////////////////////
+// Reverse an integer
+const reverseInteger = function (num) {
+  // if (num < 0) return false;
+  let numCopy = num;
+  // Convert -ve number to +ve number
+  num = Math.abs(num);
+  let rev = 0;
+  let rem;
+  while (num > 0) {
+    rem = num % 10;
+    rev = rev * 10 + rem;
+    num = Math.floor(num / 10);
+  }
+  let limit = Math.pow(2, 31); // limit= 2 ** 31;
+  if (rev < -limit || rev > limit - 1) return 0;
+  // if (numCopy < 0) {
+  //   // rev = -rev;
+  //   return -rev;
+  // } else return rev;
+  return numCopy < 0 ? -rev : rev;
+};
+
+const reversedNumber = reverseInteger(-12345678988);
+console.log(reversedNumber);
