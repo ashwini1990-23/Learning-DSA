@@ -1,4 +1,5 @@
 "use strict";
+/*
 // Programming 101
 console.log("Hello World!");
 console.log("Ashwini Patil");
@@ -125,20 +126,27 @@ const largestNumber = function (arr) {
 
 const largest = largestNumber(arrLargest);
 console.log("Largest number in an array is: ", largest);
+*/
 
 //////////////////////////////////////////
 // Second Largest number in an array
-let secondLargestArray = [4, 9, 0, 2, 8, 7, 1];
+// let secondLargestArray = [4, 9, 0, 2, 8, 7, 1];
+let secondLargestArray = [1, 9, 34, 9];
 const secondLargest = function (arr) {
   let firstLargest = -Infinity;
   let secondLargest = -Infinity;
+  if (arr.length === 0) {
+    return "Array is empty, there are no elements!";
+  }
+  if (arr.length < 2) {
+    return null;
+  }
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > firstLargest) {
       secondLargest = firstLargest;
       firstLargest = arr[i];
-      if (arr[i] > secondLargest) {
-        secondLargest = arr[i];
-      }
+    } else if (arr[i] > secondLargest && arr[i] !== firstLargest) {
+      secondLargest = arr[i];
     }
   }
   console.log(firstLargest, secondLargest);
@@ -147,3 +155,139 @@ const secondLargest = function (arr) {
 
 const res = secondLargest(secondLargestArray);
 console.log(res);
+
+////////////////////////////////////////////
+// Loop in Loop(Nested Loop)
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    console.log("i=" + i + " j=" + j);
+  }
+}
+
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < i; j++) {
+    console.log(i, j);
+  }
+}
+
+console.log("------- j<=i ---------");
+for (let i = 0; i < 5; i++) {
+  for (let j = 0; j <= i; j++) {
+    console.log(i, j);
+  }
+}
+
+console.log("------------ j=i & j>0------------");
+for (let i = 0; i < 3; i++) {
+  for (let j = i; j > 0; j--) {
+    console.log(i, j);
+  }
+}
+
+console.log("------------ j=i & j>=0------------");
+for (let i = 0; i < 3; i++) {
+  for (let j = i; j >= 0; j--) {
+    console.log(i, j);
+  }
+}
+
+console.log("------- i=5 ---------");
+for (let i = 5; i > 0; i--) {
+  for (let j = 0; j < i; j++) {
+    console.log(i, j);
+  }
+}
+
+///////////////////////////////////
+// Star Pattern
+/*.   * * * *
+ * * * *
+ * * * *
+ * * * *     */
+let n = 6;
+for (let i = 1; i <= n; i++) {
+  let row = "";
+  for (let j = 1; j <= 5; j++) {
+    row = row + "*";
+  }
+  console.log(row);
+}
+
+for (let i = 1; i <= n; i++) {
+  let row = "";
+
+  // for (let j = 0; j < i + 1; j++)
+  for (let j = 1; j <= i; j++) {
+    row = row + "*";
+  }
+  console.log(row);
+}
+
+for (let i = 1; i <= 4; i++) {
+  let row = "";
+  for (let j = 1; j <= i; j++) {
+    row = row + j;
+    // row = row + j;
+  }
+  console.log(row);
+}
+
+for (let i = 1; i <= 5; i++) {
+  let row = "";
+  for (let j = 1; j <= i; j++) {
+    row = row + i;
+    // row = row + j;
+  }
+  console.log(row);
+}
+
+console.log("-------------");
+let n1 = 5;
+for (let i = 0; i < n1; i++) {
+  let row = "";
+  for (let j = 0; j < n1 - i; j++) {
+    row = row + (j + 1);
+  }
+  console.log(row);
+}
+
+for (let i = 0; i < n1; i++) {
+  let row = "";
+  for (let j = 0; j < n1 - i; j++) {
+    row = row + "*";
+  }
+  console.log(row);
+}
+let n3 = 5;
+for (let i = 0; i < n; i++) {
+  let row = "";
+  for (let j = 0; j < n - (i + 1); j++) {
+    row = row + " . ";
+  }
+  for (let k = 0; k < i + 1; k++) {
+    row = row + " * ";
+  }
+  console.log(row);
+}
+
+for (let i = 0; i < n; i++) {
+  let row = "";
+  let swirch = 1;
+  for (let j = 0; j < i + 1; j++) {
+    row = row + swirch;
+    if (swirch === 1) swirch = 0;
+    else swirch = 1;
+  }
+  console.log(row);
+}
+let swirch = 1;
+for (let i = 0; i < 5; i++) {
+  let row = "";
+
+  for (let j = 0; j < i + 1; j++) {
+    row = row + swirch;
+    if (swirch === 1) swirch = 0;
+    else swirch = 1;
+  }
+  console.log(row);
+}
